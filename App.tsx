@@ -14,44 +14,24 @@ import {
 } from 'react-native';
 import Header from './src/screens/header';
 import Product from './src/screens/product';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
+import MainScreen from './src/screens/mainscreen';
+import UserScreen from './src/screens/userscreen';
 
+
+const Stack = createNativeStackNavigator();
 
 function App(): React.JSX.Element {
 
-  const product = [
-    {
-      name: 'samsung',
-      color: 'red',
-      price: 30000
-    },
-    {
-      name: 'Nokia',
-      color: 'blue',
-      price: 40000
-    },
-    {
-      name: 'HTC',
-      color: 'green',
-      price: 50000
-    }
-  ]
-
   return (
-    <View style={styles.container}>
-      <Header />
-      <ScrollView>
-        {
-          product.map((item) => <Product product={item} key={item.name} />)
-        }
-      </ScrollView>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="MainScreen" component={MainScreen} />
+        <Stack.Screen name="UserScreen" component={UserScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container:{
-    flex:1
-  }
-});
 
 export default App;
