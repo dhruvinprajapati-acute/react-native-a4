@@ -3,6 +3,7 @@ import rootreducer from "./rootreducer";
 import createSagaMiddleware from "redux-saga";
 import SagaData from "./saga";
 
+
 const sagaMiddlerware = createSagaMiddleware();
 
 const store = configureStore({
