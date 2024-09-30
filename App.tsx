@@ -41,7 +41,7 @@ function App(): React.JSX.Element {
       <Header />
       <ScrollView>
         {
-          product.map((item) => <Product product={item} />)
+          product.map((item) => <Product product={item} key={item.name} />)
         }
       </ScrollView>
     </View>
